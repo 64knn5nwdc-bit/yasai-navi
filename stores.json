@@ -1,0 +1,12 @@
+{
+  "stores": [
+    {"id":"genky","name":"ゲンキー（対象店舗要確認）","flyer_url":null},
+    {"id":"aoki","name":"クスリのアオキ（対象店舗要確認）","flyer_url":null},
+    {"id":"yamakishi","name":"ヤマキシ辰口（対象店舗要確認）","flyer_url":null},
+    {"id":"aeon","name":"イオン松任（対象店舗要確認）","flyer_url":null},
+    {"id":"acoop","name":"Aコープ北安田（対象店舗要確認）","flyer_url":null},
+    {"id":"ja","name":"JAまいどさん市場（対象店舗要確認）","flyer_url":null},
+    {"id":"valor","name":"バロー松任（対象店舗要確認）","flyer_url":null},
+    {"id":"gyomu","name":"業務スーパー松任（対象店舗要確認）","flyer_url":null}
+  ]
+}
