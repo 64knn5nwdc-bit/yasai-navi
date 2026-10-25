@@ -1,0 +1,34 @@
+name: Validate vegetable prices
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 23 * * 0,2,4'
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate current prices
+        run: python collect_prices.py
+
+      - name: Commit updated prices if changed
+        run: |
+          if ! git diff --quiet -- prices.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add prices.json
+            git commit -m "Remove expired vegetable prices"
+            git push
+          fi
