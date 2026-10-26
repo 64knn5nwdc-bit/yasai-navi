@@ -3,7 +3,9 @@ from urllib.request import Request, urlopen
 from urllib.parse import urljoin
 from urllib.error import URLError, HTTPError
 
-URL = "https://www.aeon.com/store/イオン/イオン松任店/"
+from urllib.parse import quote
+
+URL = "https://www.aeon.com/store/" + quote("イオン/イオン松任店/")
 
 class LinkFinder(HTMLParser):
     def __init__(self):
