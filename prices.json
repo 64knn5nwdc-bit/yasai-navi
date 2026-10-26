@@ -1,5 +1,36 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-25T23:10:57+00:00",
-  "prices": []
+  "updated_at": "2026-10-26T12:39:00+09:00",
+  "prices": [
+    {
+      "vegetable_id": "onion",
+      "store_id": "aeon",
+      "price_yen": 41.04,
+      "unit": "1個・税込",
+      "valid_from": "2026-10-26",
+      "valid_until": "2026-10-27",
+      "verified_at": "2026-10-25T22:42:00+09:00",
+      "source_url": "https://tokubai.co.jp/イオン/12654"
+    },
+    {
+      "vegetable_id": "potato",
+      "store_id": "aeon",
+      "price_yen": 51.84,
+      "unit": "1個・税込",
+      "valid_from": "2026-10-26",
+      "valid_until": "2026-10-27",
+      "verified_at": "2026-10-25T22:42:00+09:00",
+      "source_url": "https://tokubai.co.jp/イオン/12654"
+    },
+    {
+      "vegetable_id": "carrot",
+      "store_id": "aeon",
+      "price_yen": 41.04,
+      "unit": "1本・税込",
+      "valid_from": "2026-10-26",
+      "valid_until": "2026-10-27",
+      "verified_at": "2026-10-25T22:42:00+09:00",
+      "source_url": "https://tokubai.co.jp/イオン/12654"
+    }
+  ]
 }
