@@ -9,7 +9,12 @@ from urllib.request import Request, urlopen
 from urllib.robotparser import RobotFileParser
 
 UA = 'YasaiNaviSourceCheck/2.0'
-SOURCES = {'aeon':'https://www.aeon.com/store/'+quote('イオン/イオン松任店/flyer/'), 'valor':'https://stores.valor.jp/detail/158/'}
+ROOT = Path(__file__).resolve().parent
+
+def load_sources():
+    stores = json.loads((ROOT / 'stores.json').read_text(encoding='utf-8'))['stores']
+    return {s['id']: s['flyer_url'] for s in stores if s.get('source_check_enabled') is True and s.get('kind') == 'store' and s.get('flyer_url', '').startswith('https://')}
+
 
 class Structure(HTMLParser):
     def __init__(self, base):
@@ -42,7 +47,7 @@ def inspect(url):
         return {'status':'fetch_failed','error':type(e).__name__}
 
 def main():
-    obj={'checked_at':datetime.now().astimezone().isoformat(),'sources':[{ 'store_id':key,'url':url,**inspect(url)} for key,url in SOURCES.items()]}
+    obj={'checked_at':datetime.now().astimezone().isoformat(),'sources':[{ 'store_id':key,'url':url,**inspect(url)} for key,url in load_sources().items()]}
     report=json.dumps(obj,ensure_ascii=False,indent=2)
     print(report)
     Path('source_status.json').write_text(report+'\n')

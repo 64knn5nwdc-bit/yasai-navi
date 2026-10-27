@@ -18,3 +18,10 @@ class ValidationTests(unittest.TestCase):
             self.assertFalse(valid_record(p, {'aeon'}, self.now), key)
 
 if __name__ == '__main__': unittest.main()
+
+class StartTimeTests(unittest.TestCase):
+    setUp = ValidationTests.setUp
+    def test_sale_start_time_validation(self):
+        self.assertTrue(valid_record(dict(self.p, valid_from_time='15:00'), {'aeon'}, self.now))
+        for value in ['25:00', '15:60', '3:00', '', None]:
+            self.assertFalse(valid_record(dict(self.p, valid_from_time=value), {'aeon'}, self.now))

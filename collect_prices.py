@@ -1,7 +1,7 @@
 """Validate evidence-backed records. No price inference or paid services."""
 import json
 import math
-from datetime import date, datetime
+from datetime import date, datetime, time
 from zoneinfo import ZoneInfo
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -21,6 +21,10 @@ def valid_record(p, stores, now):
         if u.scheme != 'https' or not u.hostname or u.username or u.password:
             return False
         start, end = date.fromisoformat(p['valid_from']), date.fromisoformat(p['valid_until'])
+        if 'valid_from_time' in p:
+            value = p['valid_from_time']
+            if not isinstance(value, str) or len(value) != 5 or time.fromisoformat(value).isoformat(timespec='minutes') != value:
+                return False
         checked = datetime.fromisoformat(p['verified_at'].replace('Z', '+00:00'))
         if checked.tzinfo is None or checked > now or start > end or end < now.date():
             return False

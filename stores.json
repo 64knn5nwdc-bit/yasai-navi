@@ -2,53 +2,164 @@
   "stores": [
     {
       "id": "genky",
-      "name": "ゲンキー（対象店舗要確認）",
-      "flyer_url": null,
-      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認"
+      "name": "ゲンキー（対象店舗選定中）",
+      "flyer_url": "https://www.genkydrugstores.co.jp/stores/",
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
+      "address": "",
+      "reference_links": [
+        {
+          "label": "公式店舗検索",
+          "url": "https://www.genkydrugstores.co.jp/stores/"
+        }
+      ],
+      "collection_note": "店舗検索ページは今回接続確認できず。個別店舗・チラシ・価格は未確認。",
+      "source_checked_on": "2026-10-27",
+      "kind": "directory",
+      "source_check_enabled": false
     },
     {
       "id": "aoki",
-      "name": "クスリのアオキ（対象店舗要確認）",
-      "flyer_url": null,
-      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認"
+      "name": "クスリのアオキ（店舗検索）",
+      "flyer_url": "https://www.kusuri-aoki-shop-info.com/",
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
+      "address": "",
+      "reference_links": [
+        {
+          "label": "公式店舗・チラシ検索",
+          "url": "https://www.kusuri-aoki-shop-info.com/"
+        }
+      ],
+      "collection_note": "店舗を選んでチラシを確認してください。チェーン共通価格としては掲載しません。",
+      "source_checked_on": "2026-10-27",
+      "kind": "directory",
+      "source_check_enabled": false
     },
     {
       "id": "yamakishi",
-      "name": "ヤマキシ辰口（対象店舗要確認）",
-      "flyer_url": null,
-      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認"
+      "name": "ヤマキシ川北店",
+      "flyer_url": "https://yamakishi.co.jp/news/kawakita",
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
+      "address": "石川県能美郡川北町字三反田中216-1",
+      "reference_links": [
+        {
+          "label": "公式チラシ",
+          "url": "https://yamakishi.co.jp/news/kawakita"
+        },
+        {
+          "label": "公式店舗情報",
+          "url": "https://www.yamakishi.co.jp/shop-info/"
+        }
+      ],
+      "collection_note": "公式チラシは画像形式。掲載期間と商品ごとの販売日・税込価格の照合が必要。",
+      "source_checked_on": "2026-10-27",
+      "kind": "store",
+      "source_check_enabled": true
     },
     {
       "id": "aeon",
       "name": "イオン松任店",
       "flyer_url": "https://www.aeon.com/store/イオン/イオン松任店/flyer/",
       "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
-      "address": "石川県白山市平松町102-1"
+      "address": "石川県白山市平松町102-1",
+      "kind": "store",
+      "source_check_enabled": true,
+      "source_checked_on": "2026-10-27",
+      "reference_links": [
+        {
+          "label": "公式店舗・チラシ",
+          "url": "https://www.aeon.com/store/イオン/イオン松任店/flyer/"
+        }
+      ],
+      "collection_note": "画像のチラシ。確認済み商品のみ掲載し、自動診断と価格取得は区別します。"
     },
     {
       "id": "acoop",
-      "name": "Aコープ北安田（対象店舗要確認）",
-      "flyer_url": null,
-      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認"
+      "name": "ファーマーズAコープ北安田店",
+      "flyer_url": "https://jacom-ishikawa.acoop.jp/shop/list/shop_9.html",
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
+      "address": "石川県白山市北安田西1丁目50番地",
+      "reference_links": [
+        {
+          "label": "公式店舗・チラシ",
+          "url": "https://jacom-ishikawa.acoop.jp/shop/list/shop_9.html"
+        }
+      ],
+      "collection_note": "公式ページにトクバイのチラシを埋め込み。一部価格・ポイント倍率は店頭と異なる場合あり。",
+      "source_checked_on": "2026-10-27",
+      "kind": "store",
+      "source_check_enabled": true
     },
     {
       "id": "ja",
-      "name": "JAまいどさん市場（対象店舗要確認）",
-      "flyer_url": null,
-      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認"
+      "name": "JAグリーン松任 まいどさん市場",
+      "flyer_url": "https://www.is-ja.jp/matto/service/maidosan/",
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
+      "address": "石川県白山市倉光4丁目40",
+      "reference_links": [
+        {
+          "label": "公式直売所情報",
+          "url": "https://www.is-ja.jp/matto/service/maidosan/"
+        }
+      ],
+      "collection_note": "公式の直売所案内を確認。商品別の現行価格・販売期間は未確認。",
+      "source_checked_on": "2026-10-27",
+      "kind": "store",
+      "source_check_enabled": true
     },
     {
       "id": "valor",
       "name": "バロー松任店",
       "flyer_url": "https://stores.valor.jp/detail/158/",
       "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
-      "address": "石川県白山市相木2丁目15-1"
+      "address": "石川県白山市相木2丁目15-1",
+      "kind": "store",
+      "source_check_enabled": true,
+      "source_checked_on": "2026-10-27",
+      "reference_links": [
+        {
+          "label": "公式店舗・チラシ",
+          "url": "https://stores.valor.jp/detail/158/"
+        }
+      ],
+      "collection_note": "画像のチラシ。確認済み商品のみ掲載し、自動診断と価格取得は区別します。"
     },
     {
       "id": "gyomu",
-      "name": "業務スーパー松任（対象店舗要確認）",
-      "flyer_url": null,
-      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認"
+      "name": "業務スーパー松任店",
+      "flyer_url": "https://www.gyomusuper.jp/shop/detail.php?sh_id=1328",
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
+      "address": "石川県白山市村井町2001番",
+      "reference_links": [
+        {
+          "label": "公式店舗情報",
+          "url": "https://www.gyomusuper.jp/shop/detail.php?sh_id=1328"
+        },
+        {
+          "label": "公式特売情報",
+          "url": "https://www.gyomusuper.jp/saiyasune.php"
+        }
+      ],
+      "collection_note": "青果取扱店。全国・地域の特売を松任店の生鮮野菜価格に流用しません。",
+      "source_checked_on": "2026-10-27",
+      "kind": "store",
+      "source_check_enabled": true
+    },
+    {
+      "id": "aoki_kitayasuda_minami",
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
+      "name": "クスリのアオキ 北安田南店",
+      "address": "石川県白山市北安田南一丁目289番地",
+      "reference_links": [
+        {
+          "label": "公式店舗・チラシ",
+          "url": "https://kusuri-aoki-shop-info.com/result?storeCode=585"
+        }
+      ],
+      "collection_note": "店舗の公式ページを確認。掲載画像の価格・販売日を確認できるまで価格未掲載。",
+      "source_checked_on": "2026-10-27",
+      "kind": "store",
+      "source_check_enabled": true,
+      "flyer_url": "https://kusuri-aoki-shop-info.com/result?storeCode=585"
     }
   ]
 }
