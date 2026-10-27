@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-10-26T22:30:28.972491+09:00",
+  "sources": [
+    {
+      "store_id": "aeon",
+      "url": "https://www.aeon.com/store/%E3%82%A4%E3%82%AA%E3%83%B3/%E3%82%A4%E3%82%AA%E3%83%B3%E6%9D%BE%E4%BB%BB%E5%BA%97/flyer/",
+      "status": "robots_unavailable",
+      "error": "HTTPError"
+    },
+    {
+      "store_id": "valor",
+      "url": "https://stores.valor.jp/detail/158/",
+      "status": "robots_unavailable",
+      "error": "HTTPError"
+    }
+  ]
+}

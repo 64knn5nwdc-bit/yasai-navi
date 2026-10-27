@@ -1,63 +1,51 @@
-"""Check official flyer pages without inventing prices."""
-
-from datetime import datetime
-from zoneinfo import ZoneInfo
-from urllib.request import Request, urlopen
-from urllib.error import URLError, HTTPError
+"""Bounded, robots-aware diagnostics; never treats images as verified prices."""
+import json
 import os
+from datetime import datetime
+from html.parser import HTMLParser
+from pathlib import Path
+from urllib.parse import quote, urljoin, urlsplit
+from urllib.request import Request, urlopen
+from urllib.robotparser import RobotFileParser
 
-SOURCES = {
-    "イオン松任店": (
-        "https://www.aeon.com/store/"
-        "%E3%82%A4%E3%82%AA%E3%83%B3/"
-        "%E3%82%A4%E3%82%AA%E3%83%B3"
-        "%E6%9D%BE%E4%BB%BB%E5%BA%97/"
-    )
-}
+UA = 'YasaiNaviSourceCheck/2.0'
+SOURCES = {'aeon':'https://www.aeon.com/store/'+quote('イオン/イオン松任店/flyer/'), 'valor':'https://stores.valor.jp/detail/158/'}
+
+class Structure(HTMLParser):
+    def __init__(self, base):
+        super().__init__(); self.base=base; self.resources=[]; self.flyer_ids=[]
+    def handle_starttag(self, tag, attrs):
+        d=dict(attrs)
+        if d.get('data-flyer-id'): self.flyer_ids.append(d['data-flyer-id'])
+        if tag in ('script','iframe') and d.get('src'):
+            u=urljoin(self.base,d['src'])
+            if any(s in u for s in ('aeon-store.js','shufoo','chirashi','flyer')):
+                self.resources.append(u)
+
+def read(url):
+    with urlopen(Request(url,headers={'User-Agent':UA}),timeout=15) as r:
+        b=r.read(2_000_001)
+        if len(b)>2_000_000: raise ValueError('Response too large')
+        return b.decode('utf-8',errors='replace')
+
+def inspect(url):
+    origin='https://'+urlsplit(url).netloc
+    try:
+        robots=RobotFileParser(); robots.parse(read(origin+'/robots.txt').splitlines())
+        if not robots.can_fetch(UA,url): return {'status':'robots_disallowed'}
+    except Exception as e:
+        return {'status':'robots_unavailable','error':type(e).__name__}
+    try:
+        html=read(url); parser=Structure(url); parser.feed(html)
+        return {'status':'dynamic_source_requires_review' if parser.flyer_ids or parser.resources else 'requires_review','flyer_ids':sorted(set(parser.flyer_ids)),'resources':sorted(set(parser.resources)), 'viewer_urls':['https://chirashi.otoku.aeonsquare.net/pc/chirashi/otoku/com_frame.html?shop_id='+i for i in sorted(set(parser.flyer_ids))] if urlsplit(url).hostname=='www.aeon.com' else [],'price_collection':'disabled: permission and complete product evidence required'}
+    except Exception as e:
+        return {'status':'fetch_failed','error':type(e).__name__}
 
 def main():
-    now = datetime.now(ZoneInfo("Asia/Tokyo"))
-    lines = [
-        "# 野菜最安ナビ｜情報源チェック",
-        f"確認日時：{now:%Y-%m-%d %H:%M} JST",
-        "",
-    ]
-
-    for name, url in SOURCES.items():
-        try:
-            request = Request(
-                url,
-                headers={
-                    "User-Agent": "YasaiNaviSourceCheck/1.0"
-                },
-            )
-            with urlopen(request, timeout=20) as response:
-                content = response.read(500000).decode(
-                    "utf-8", errors="replace"
-                )
-                status = response.status
-
-            if status == 200 and "チラシ情報" in content:
-                result = "公式ページに接続成功"
-            else:
-                result = "内容を確認できませんでした"
-
-        except (URLError, HTTPError, TimeoutError) as error:
-            result = f"接続失敗：{type(error).__name__}"
-
-        lines.append(f"## {name}")
-        lines.append(f"- 状態：{result}")
-        lines.append(f"- URL：{url}")
-        lines.append("- 野菜価格：未取得")
-        lines.append("")
-
-    report = "\n".join(lines)
+    obj={'checked_at':datetime.now().astimezone().isoformat(),'sources':[{ 'store_id':key,'url':url,**inspect(url)} for key,url in SOURCES.items()]}
+    report=json.dumps(obj,ensure_ascii=False,indent=2)
     print(report)
-
-    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
-    if summary_path:
-        with open(summary_path, "a", encoding="utf-8") as file:
-            file.write(report + "\n")
-
-if __name__ == "__main__":
-    main()
+    Path('source_status.json').write_text(report+'\n')
+    if os.getenv('GITHUB_STEP_SUMMARY'):
+        with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f: f.write('## 情報源診断（価格取得とは別）\n```json\n'+report+'\n```\n')
+if __name__=='__main__': main()

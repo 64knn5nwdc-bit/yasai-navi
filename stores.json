@@ -1,12 +1,54 @@
 {
   "stores": [
-    {"id":"genky","name":"ゲンキー（対象店舗要確認）","flyer_url":null},
-    {"id":"aoki","name":"クスリのアオキ（対象店舗要確認）","flyer_url":null},
-    {"id":"yamakishi","name":"ヤマキシ辰口（対象店舗要確認）","flyer_url":null},
-    {"id":"aeon","name":"イオン松任（対象店舗要確認）","flyer_url":null},
-    {"id":"acoop","name":"Aコープ北安田（対象店舗要確認）","flyer_url":null},
-    {"id":"ja","name":"JAまいどさん市場（対象店舗要確認）","flyer_url":null},
-    {"id":"valor","name":"バロー松任（対象店舗要確認）","flyer_url":null},
-    {"id":"gyomu","name":"業務スーパー松任（対象店舗要確認）","flyer_url":null}
+    {
+      "id": "genky",
+      "name": "ゲンキー（対象店舗要確認）",
+      "flyer_url": null,
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認"
+    },
+    {
+      "id": "aoki",
+      "name": "クスリのアオキ（対象店舗要確認）",
+      "flyer_url": null,
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認"
+    },
+    {
+      "id": "yamakishi",
+      "name": "ヤマキシ辰口（対象店舗要確認）",
+      "flyer_url": null,
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認"
+    },
+    {
+      "id": "aeon",
+      "name": "イオン松任店",
+      "flyer_url": "https://www.aeon.com/store/イオン/イオン松任店/flyer/",
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
+      "address": "石川県白山市平松町102-1"
+    },
+    {
+      "id": "acoop",
+      "name": "Aコープ北安田（対象店舗要確認）",
+      "flyer_url": null,
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認"
+    },
+    {
+      "id": "ja",
+      "name": "JAまいどさん市場（対象店舗要確認）",
+      "flyer_url": null,
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認"
+    },
+    {
+      "id": "valor",
+      "name": "バロー松任店",
+      "flyer_url": "https://stores.valor.jp/detail/158/",
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
+      "address": "石川県白山市相木2丁目15-1"
+    },
+    {
+      "id": "gyomu",
+      "name": "業務スーパー松任（対象店舗要確認）",
+      "flyer_url": null,
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認"
+    }
   ]
 }
