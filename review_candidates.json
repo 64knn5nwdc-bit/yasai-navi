@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_success_at": "2026-10-27T20:47:21+09:00",
+  "last_success_at": "2026-10-27T21:05:42+09:00",
   "warning": "UNVERIFIED OCR HINTS. Never use as prices or product sale dates.",
   "robots_status": "robots_absent_404",
   "images": [
@@ -175,7 +175,5 @@
         "purchase_conditions"
       ]
     }
-  ],
-  "processed_at": "2026-10-27T21:02:07+09:00",
-  "processing_mode": "existing_verified_image_snapshot"
+  ]
 }
