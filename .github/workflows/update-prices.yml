@@ -1,34 +1,47 @@
-name: Validate vegetable prices
-
+name: Validate prices and diagnose sources
 on:
+  push:
+    branches: [main]
+  pull_request:
   workflow_dispatch:
   schedule:
     - cron: '0 23 * * 0,2,4'
-
 permissions:
-  contents: write
-
+  contents: read
+concurrency:
+  group: prices-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
-  validate:
+  test:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
-      - name: Validate current prices
-        run: python collect_prices.py
-
-      - name: Commit updated prices if changed
+      - run: python -m unittest discover -s . -v
+      - run: python collect_prices.py
+  maintain:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python check_sources.py
+      - run: python collect_prices.py
+      - name: Save validated data
         run: |
-          if ! git diff --quiet -- prices.json; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add prices.json
-            git commit -m "Remove expired vegetable prices"
+          git add prices.json source_status.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Update validation and source diagnostics'
             git push
           fi
