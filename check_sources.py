@@ -4,11 +4,8 @@ import os
 from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import quote, urljoin, urlsplit
-from urllib.request import Request, urlopen
-from urllib.robotparser import RobotFileParser
+from urllib.parse import urljoin, urlsplit
 
-UA = 'YasaiNaviSourceCheck/2.0'
 ROOT = Path(__file__).resolve().parent
 
 def load_sources():
@@ -27,24 +24,21 @@ class Structure(HTMLParser):
             if any(s in u for s in ('aeon-store.js','shufoo','chirashi','flyer')):
                 self.resources.append(u)
 
-def read(url):
-    with urlopen(Request(url,headers={'User-Agent':UA}),timeout=15) as r:
-        b=r.read(2_000_001)
-        if len(b)>2_000_000: raise ValueError('Response too large')
-        return b.decode('utf-8',errors='replace')
-
-def inspect(url):
-    origin='https://'+urlsplit(url).netloc
+def inspect(url, client=None):
+    from source_access import SourceClient, AccessStopped
+    client = client or SourceClient(max_requests=3)
     try:
-        robots=RobotFileParser(); robots.parse(read(origin+'/robots.txt').splitlines())
-        if not robots.can_fetch(UA,url): return {'status':'robots_disallowed'}
-    except Exception as e:
-        return {'status':'robots_unavailable','error':type(e).__name__}
-    try:
-        html=read(url); parser=Structure(url); parser.feed(html)
-        return {'status':'dynamic_source_requires_review' if parser.flyer_ids or parser.resources else 'requires_review','flyer_ids':sorted(set(parser.flyer_ids)),'resources':sorted(set(parser.resources)), 'viewer_urls':['https://chirashi.otoku.aeonsquare.net/pc/chirashi/otoku/com_frame.html?shop_id='+i for i in sorted(set(parser.flyer_ids))] if urlsplit(url).hostname=='www.aeon.com' else [],'price_collection':'disabled: permission and complete product evidence required'}
-    except Exception as e:
-        return {'status':'fetch_failed','error':type(e).__name__}
+        body, kind, robots_status = client.get(url)
+        html = body.decode('utf-8', errors='replace')
+        parser = Structure(url)
+        parser.feed(html)
+        return {'status': 'dynamic_source_requires_review' if parser.flyer_ids or parser.resources else 'requires_review',
+                'robots_status': robots_status, 'flyer_ids': sorted(set(parser.flyer_ids)),
+                'resources': sorted(set(parser.resources)),
+                'viewer_urls': ['https://chirashi.otoku.aeonsquare.net/pc/chirashi/otoku/com_frame.html?shop_id='+i for i in sorted(set(parser.flyer_ids))] if urlsplit(url).hostname=='www.aeon.com' else [],
+                'price_collection': 'disabled: complete product evidence required'}
+    except (AccessStopped, OSError, TimeoutError) as error:
+        return {'status': 'fetch_stopped', 'reason': str(error) if isinstance(error, AccessStopped) else type(error).__name__}
 
 def main():
     obj={'checked_at':datetime.now().astimezone().isoformat(),'sources':[{ 'store_id':key,'url':url,**inspect(url)} for key,url in load_sources().items()]}

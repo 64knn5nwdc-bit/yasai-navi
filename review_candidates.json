@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "last_success_at": "2026-10-27T19:46:34+09:00",
+  "warning": "UNVERIFIED OCR HINTS. Never use as prices or product sale dates.",
+  "robots_status": "robots_absent_404",
+  "images": [
+    {
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1027_kawakita_omote.jpg",
+      "sha256": "6460034f43de52ff9a2141fb34c6342ef0e11a81507b79114cf22492c3048658",
+      "flyer_period": {
+        "start": "2026-10-27",
+        "end": "2026-10-29",
+        "kind": "flyer_metadata_not_product_sale_dates"
+      },
+      "ocr_product_hints": 2
+    },
+    {
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1027_shoku_ura.jpg",
+      "sha256": "71c831278e3f8c703f810243d65413b74ee5d6b17198102ce4f751d80f2b2ee7",
+      "flyer_period": {
+        "start": "2026-10-27",
+        "end": "2026-10-29",
+        "kind": "flyer_metadata_not_product_sale_dates"
+      },
+      "ocr_product_hints": 0
+    }
+  ],
+  "candidates": [
+    {
+      "id": "008f04a1f72aa6fd0a4c33ba",
+      "store_id": "yamakishi",
+      "vegetable_hint": "cabbage",
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1027_kawakita_omote.jpg",
+      "image_sha256": "6460034f43de52ff9a2141fb34c6342ef0e11a81507b79114cf22492c3048658",
+      "ocr_mode": 11,
+      "bbox": [
+        459,
+        147,
+        77,
+        19
+      ],
+      "ocr_confidence": 91.29,
+      "evidence_hint": "キャベツ / ュリ / 1玉 / 550I / ィ。デ",
+      "review_status": "unverified",
+      "price_yen": null,
+      "unit": null,
+      "valid_from": null,
+      "valid_until": null,
+      "review_required": [
+        "product_price_association",
+        "tax_included_price",
+        "quantity_unit",
+        "product_sale_dates_and_times",
+        "purchase_conditions"
+      ]
+    },
+    {
+      "id": "4eada37e3c6c0e6a69302111",
+      "store_id": "yamakishi",
+      "vegetable_hint": "komatsuna",
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1027_kawakita_omote.jpg",
+      "image_sha256": "6460034f43de52ff9a2141fb34c6342ef0e11a81507b79114cf22492c3048658",
+      "ocr_mode": 11,
+      "bbox": [
+        92,
+        866,
+        62,
+        33
+      ],
+      "ocr_confidence": 23.14,
+      "evidence_hint": "小松菜 / 1付 / /ア / ルル / oO)",
+      "review_status": "unverified",
+      "price_yen": null,
+      "unit": null,
+      "valid_from": null,
+      "valid_until": null,
+      "review_required": [
+        "product_price_association",
+        "tax_included_price",
+        "quantity_unit",
+        "product_sale_dates_and_times",
+        "purchase_conditions"
+      ]
+    }
+  ]
+}
