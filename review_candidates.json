@@ -1,22 +1,26 @@
 {
-  "schema_version": 1,
-  "last_success_at": "2026-10-27T19:56:31+09:00",
+  "schema_version": 2,
+  "last_success_at": "2026-10-27T20:47:21+09:00",
   "warning": "UNVERIFIED OCR HINTS. Never use as prices or product sale dates.",
   "robots_status": "robots_absent_404",
   "images": [
     {
       "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1027_kawakita_omote.jpg",
       "sha256": "6460034f43de52ff9a2141fb34c6342ef0e11a81507b79114cf22492c3048658",
+      "width": 2256,
+      "height": 1606,
       "flyer_period": {
         "start": "2026-10-27",
         "end": "2026-10-29",
         "kind": "flyer_metadata_not_product_sale_dates"
       },
-      "ocr_product_hints": 2
+      "ocr_product_hints": 5
     },
     {
       "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1027_shoku_ura.jpg",
       "sha256": "71c831278e3f8c703f810243d65413b74ee5d6b17198102ce4f751d80f2b2ee7",
+      "width": 2256,
+      "height": 1606,
       "flyer_period": {
         "start": "2026-10-27",
         "end": "2026-10-29",
@@ -40,7 +44,37 @@
         19
       ],
       "ocr_confidence": 91.29,
-      "evidence_hint": "キャベツ / ュリ / 1玉 / 550I / ィ。デ",
+      "match_method": "exact_text",
+      "evidence_hint": "キャベツ",
+      "review_status": "unverified",
+      "price_yen": null,
+      "unit": null,
+      "valid_from": null,
+      "valid_until": null,
+      "review_required": [
+        "product_price_association",
+        "tax_included_price",
+        "quantity_unit",
+        "product_sale_dates_and_times",
+        "purchase_conditions"
+      ]
+    },
+    {
+      "id": "563b2a053921e74cb114e38c",
+      "store_id": "yamakishi",
+      "vegetable_hint": "cucumber",
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1027_kawakita_omote.jpg",
+      "image_sha256": "6460034f43de52ff9a2141fb34c6342ef0e11a81507b79114cf22492c3048658",
+      "ocr_mode": 11,
+      "bbox": [
+        1018,
+        142,
+        64,
+        35
+      ],
+      "ocr_confidence": 76.14,
+      "match_method": "one_character_difference",
+      "evidence_hint": "きゅうし",
       "review_status": "unverified",
       "price_yen": null,
       "unit": null,
@@ -68,7 +102,66 @@
         33
       ],
       "ocr_confidence": 23.14,
-      "evidence_hint": "小松菜 / 1付 / /ア / ルル / oO)",
+      "match_method": "exact_text",
+      "evidence_hint": "小松菜",
+      "review_status": "unverified",
+      "price_yen": null,
+      "unit": null,
+      "valid_from": null,
+      "valid_until": null,
+      "review_required": [
+        "product_price_association",
+        "tax_included_price",
+        "quantity_unit",
+        "product_sale_dates_and_times",
+        "purchase_conditions"
+      ]
+    },
+    {
+      "id": "c9065a37d3bb5163daccf45e",
+      "store_id": "yamakishi",
+      "vegetable_hint": "negi",
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1027_kawakita_omote.jpg",
+      "image_sha256": "6460034f43de52ff9a2141fb34c6342ef0e11a81507b79114cf22492c3048658",
+      "ocr_mode": 11,
+      "bbox": [
+        800,
+        867,
+        64,
+        35
+      ],
+      "ocr_confidence": 88.66,
+      "match_method": "exact_text",
+      "evidence_hint": "白ねぎ",
+      "review_status": "unverified",
+      "price_yen": null,
+      "unit": null,
+      "valid_from": null,
+      "valid_until": null,
+      "review_required": [
+        "product_price_association",
+        "tax_included_price",
+        "quantity_unit",
+        "product_sale_dates_and_times",
+        "purchase_conditions"
+      ]
+    },
+    {
+      "id": "d2e20cda97100ac8168a0f7b",
+      "store_id": "yamakishi",
+      "vegetable_hint": "carrot",
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1027_kawakita_omote.jpg",
+      "image_sha256": "6460034f43de52ff9a2141fb34c6342ef0e11a81507b79114cf22492c3048658",
+      "ocr_mode": 11,
+      "bbox": [
+        1675,
+        866,
+        78,
+        34
+      ],
+      "ocr_confidence": 85.57,
+      "match_method": "one_character_difference",
+      "evidence_hint": "にんじだ",
       "review_status": "unverified",
       "price_yen": null,
       "unit": null,
@@ -82,5 +175,7 @@
         "purchase_conditions"
       ]
     }
-  ]
+  ],
+  "processed_at": "2026-10-27T21:02:07+09:00",
+  "processing_mode": "existing_verified_image_snapshot"
 }

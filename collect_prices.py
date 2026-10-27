@@ -7,7 +7,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent
-VEGETABLES = {'cabbage','onion','carrot','potato','daikon','tomato','cucumber','hakusai','komatsuna','spinach'}
+VEGETABLES = {'cabbage','onion','negi','carrot','potato','daikon','tomato','cucumber','hakusai','komatsuna','spinach'}
 
 def valid_record(p, stores, now):
     try:

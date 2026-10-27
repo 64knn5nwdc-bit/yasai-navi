@@ -33,6 +33,24 @@ class AccessTests(unittest.TestCase):
         with self.assertRaises(AccessStopped):SameHostRedirects().redirect_request(Request('https://example.org/'),None,302,'',{},'https://other.org/')
 
 class CandidateTests(unittest.TestCase):
+    def test_near_names_remain_uncertain_and_do_not_create_prices(self):
+        self.assertEqual(collector.name_matches('キャベツ'), [('cabbage','exact_text')])
+        self.assertEqual(collector.name_matches('きゅうし'), [('cucumber','one_character_difference')])
+        self.assertEqual(collector.name_matches('にんじだ'), [('carrot','one_character_difference')])
+        for text in ['白才','牛乳','きゆうし','キャベツとにんじだの炒め物']:
+            self.assertFalse(any(method == 'one_character_difference' for _, method in collector.name_matches(text)))
+        line={'text':'きゅうし','confidence':15,'bbox':[10,20,40,20]}
+        hint=collector.candidates([line], 'https://example.org/flyer.jpg', 'abc', 11)[0]
+        self.assertEqual(hint['evidence_hint'], 'きゅうし')
+        self.assertIsNone(hint['price_yen'])
+        self.assertEqual(hint['match_method'], 'one_character_difference')
+
+    def test_page_size_and_invalid_ocr_numbers(self):
+        head='level\tpage_num\tblock_num\tpar_num\tline_num\tleft\ttop\twidth\theight\tconf\ttext\n'
+        self.assertEqual(collector.ocr_page_size(head+'1\t1\t0\t0\t0\t0\t0\t2256\t1606\t-1\t\n'), (2256,1606))
+        with self.assertRaises(ValueError):collector.ocr_page_size(head+'1\t1\t0\t0\t0\t0\t0\t99999\t99999\t-1\t\n')
+        self.assertEqual(collector.ocr_lines(head+'5\t1\t1\t1\t1\t10\t20\t40\t20\tnan\tキャベツ\n'), [])
+
     def test_links_and_metadata_are_restricted(self):
         url='https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1027_kawakita_omote.jpg'
         parser=collector.FlyerLinks()

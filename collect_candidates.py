@@ -9,12 +9,14 @@ import hashlib
 from html.parser import HTMLParser
 import io
 import json
+import math
 import os
 from pathlib import Path
 import re
 import shutil
 import subprocess
 import tempfile
+import unicodedata
 from datetime import date, datetime
 from zoneinfo import ZoneInfo
 from urllib.parse import urljoin, urlsplit
@@ -22,7 +24,7 @@ from source_access import SourceClient, AccessStopped
 
 ROOT = Path(__file__).resolve().parent
 SOURCE = 'https://yamakishi.co.jp/news/kawakita'
-NAMES = {'cabbage': ('キャベツ',), 'onion': ('玉ねぎ', 'たまねぎ'),
+NAMES = {'negi': ('白ねぎ', '長ねぎ'), 'cabbage': ('キャベツ',), 'onion': ('玉ねぎ', 'たまねぎ'),
          'carrot': ('にんじん', '人参'), 'potato': ('じゃがいも',),
          'daikon': ('大根', 'だいこん'), 'tomato': ('トマト',),
          'cucumber': ('きゅうり',), 'hakusai': ('白菜',),
@@ -76,6 +78,8 @@ def ocr_lines(tsv):
             confidence = float(r['conf'])
         except (TypeError, ValueError, KeyError):
             continue
+        if not math.isfinite(confidence) or confidence < 0 or any(n < 0 for n in box) or not all(box[2:]):
+            continue
         key = tuple(r.get(k) for k in ('page_num', 'block_num', 'par_num', 'line_num'))
         groups.setdefault(key, []).append((box, confidence, r['text']))
     result = []
@@ -89,20 +93,50 @@ def ocr_lines(tsv):
                        'confidence': round(min(w[1] for w in words), 2)})
     return result
 
+def ocr_page_size(tsv):
+    """Read original-image dimensions from Tesseract's page row, without crops."""
+    for row in csv.DictReader(io.StringIO(tsv), delimiter='\t', quoting=csv.QUOTE_NONE):
+        if row.get('level') == '1':
+            try:
+                width, height = int(row['width']), int(row['height'])
+                if 0 < width <= 10000 and 0 < height <= 10000 and width * height <= 25_000_000:
+                    return width, height
+            except (KeyError, TypeError, ValueError):
+                pass
+            break
+    raise ValueError('ocr_image_dimensions_require_review')
+
+def one_character_apart(a, b):
+    if a == b or abs(len(a)-len(b)) > 1:
+        return False
+    if len(a) == len(b):
+        return sum(x != y for x, y in zip(a, b)) == 1
+    if len(a) > len(b):
+        a, b = b, a
+    return any(a == b[:i]+b[i+1:] for i in range(len(b)))
+
+def name_matches(text):
+    text = ''.join(unicodedata.normalize('NFKC', text).split())
+    exact = [v for v, aliases in NAMES.items() if any(a in text for a in aliases)]
+    if exact:
+        return [(v, 'exact_text') for v in exact]
+    # A near match is only a review suggestion, NEVER a corrected OCR fact.
+    # Short names and long mixed-product lines are too ambiguous to suggest.
+    near = [v for v, aliases in NAMES.items() if len(text) <= 6 and any(len(a) >= 4 and one_character_apart(text, a) for a in aliases)]
+    return [(near[0], 'one_character_difference')] if len(near) == 1 else []
+
 def candidates(lines, image_url, digest, mode):
     results = []
     for line in lines:
-        for vegetable, aliases in NAMES.items():
-            if not any(name in line['text'] for name in aliases):
-                continue
+        for vegetable, match_method in name_matches(line['text']):
             x, y, width, height = line['bbox']
-            # Nearby text is a review aid, never an association or an offer.
-            nearby = [r['text'] for r in lines if r is not line and abs(r['bbox'][0]-x) < max(100, width*2) and 0 <= r['bbox'][1]-y < max(160, height*8)]
-            text = ' / '.join([line['text'], *nearby[:4]])[:240]
+            # Do not concatenate unrelated prices from nearby columns.
+            text = line['text'][:180]
             key = image_url + digest + vegetable + json.dumps(line['bbox']) + str(mode)
             results.append({'id': hashlib.sha256(key.encode()).hexdigest()[:24], 'store_id': 'yamakishi',
                             'vegetable_hint': vegetable, 'source_url': image_url, 'image_sha256': digest,
                             'ocr_mode': mode, 'bbox': line['bbox'], 'ocr_confidence': line['confidence'],
+                            'match_method': match_method,
                             'evidence_hint': text, 'review_status': 'unverified',
                             'price_yen': None, 'unit': None, 'valid_from': None, 'valid_until': None,
                             'review_required': ['product_price_association', 'tax_included_price', 'quantity_unit', 'product_sale_dates_and_times', 'purchase_conditions']})
@@ -118,6 +152,14 @@ def atomic_json(path, value):
     temp = path.with_suffix('.tmp')
     temp.write_text(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False)+'\n', encoding='utf-8')
     temp.replace(path)
+
+def extract_image(file, url, period, tessdata=None):
+    digest = hashlib.sha256(file.read_bytes()).hexdigest()
+    tsv = run_ocr(file, tessdata)
+    width, height = ocr_page_size(tsv)
+    found = candidates(ocr_lines(tsv), url, digest, 11)
+    return ({'source_url': url, 'sha256': digest, 'width': width, 'height': height,
+             'flyer_period': period, 'ocr_product_hints': len(found)}, found)
 
 def collect(client, tessdata=None):
     body, kind, robots = client.get(SOURCE)
@@ -135,12 +177,10 @@ def collect(client, tessdata=None):
             data, image_kind, _ = client.get(url, limit=12_000_000)
             if not data.startswith(b'\xff\xd8\xff'):
                 raise ValueError('unexpected_image_format')
-            digest = hashlib.sha256(data).hexdigest()
             file = Path(work) / 'flyer.jpg'
             file.write_bytes(data)
-            lines = ocr_lines(run_ocr(file, tessdata))
-            found = candidates(lines, url, digest, 11)
-            images.append({'source_url': url, 'sha256': digest, 'flyer_period': period, 'ocr_product_hints': len(found)})
+            image, found = extract_image(file, url, period, tessdata)
+            images.append(image)
             hints.extend(found)
     return {'robots_status': robots, 'images': images, 'candidates': hints}
 
@@ -157,7 +197,7 @@ def main():
         result = collect(SourceClient(max_requests=5), args.tessdata_dir)
         status.update(status='candidates_ready' if result['images'] else 'no_current_flyer',
                       image_count=len(result['images']), candidate_count=len(result['candidates']), robots_status=result['robots_status'])
-        atomic_json(ROOT/'review_candidates.json', {'schema_version': 1, 'last_success_at': now,
+        atomic_json(ROOT/'review_candidates.json', {'schema_version': 2, 'last_success_at': now,
                     'warning': 'UNVERIFIED OCR HINTS. Never use as prices or product sale dates.', **result})
     except (AccessStopped, ValueError, OSError, subprocess.SubprocessError) as error:
         status.update(status='collection_stopped', reason=str(error)[:160] if isinstance(error, (AccessStopped, ValueError)) else type(error).__name__)
