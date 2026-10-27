@@ -1,5 +1,7 @@
 """Offline checks: access refusals stop; OCR never becomes a published offer."""
 import json
+import io
+from contextlib import redirect_stdout
 from pathlib import Path
 import tempfile
 import unittest
@@ -52,7 +54,7 @@ class CandidateTests(unittest.TestCase):
             original=b'{"candidates": ["previous"]}'
             (root/'review_candidates.json').write_bytes(original)
             (root/'prices.json').write_bytes(b'unchanged')
-            with patch.object(collector,'ROOT',root),patch.object(collector.shutil,'which',return_value='/usr/bin/tesseract'),patch.object(collector,'collect',side_effect=AccessStopped('robots_http_403')),patch('sys.argv',['collect_candidates.py']):collector.main()
+            with patch.dict('os.environ',{},clear=True),redirect_stdout(io.StringIO()),patch.object(collector,'ROOT',root),patch.object(collector.shutil,'which',return_value='/usr/bin/tesseract'),patch.object(collector,'collect',side_effect=AccessStopped('robots_http_403')),patch('sys.argv',['collect_candidates.py']):collector.main()
             self.assertEqual((root/'review_candidates.json').read_bytes(),original)
             self.assertEqual((root/'prices.json').read_bytes(),b'unchanged')
             self.assertEqual(json.loads((root/'collection_status.json').read_text())['status'],'collection_stopped')
