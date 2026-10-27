@@ -1,56 +1,76 @@
 {
-  "checked_at": "2026-10-27T10:35:21.854582+00:00",
+  "checked_at": "2026-10-27T10:56:09.733888+00:00",
   "sources": [
     {
       "store_id": "yamakishi",
       "url": "https://yamakishi.co.jp/news/kawakita",
-      "status": "robots_unavailable",
-      "error": "HTTPError"
+      "status": "requires_review",
+      "robots_status": "robots_absent_404",
+      "flyer_ids": [],
+      "resources": [],
+      "viewer_urls": [],
+      "price_collection": "disabled: complete product evidence required"
     },
     {
       "store_id": "aeon",
       "url": "https://www.aeon.com/store/イオン/イオン松任店/flyer/",
-      "status": "robots_unavailable",
-      "error": "HTTPError"
+      "status": "dynamic_source_requires_review",
+      "robots_status": "robots_absent_404",
+      "flyer_ids": [
+        "0000025310"
+      ],
+      "resources": [
+        "https://asp.shufoo.net/t/asp_client/src/js/asp_chirashi_list.js",
+        "https://www.aeon.com/store/pc/js/aeon-store.js?id=83327207b4c6bdc9cf750ad661e1aecc"
+      ],
+      "viewer_urls": [
+        "https://chirashi.otoku.aeonsquare.net/pc/chirashi/otoku/com_frame.html?shop_id=0000025310"
+      ],
+      "price_collection": "disabled: complete product evidence required"
     },
     {
       "store_id": "acoop",
       "url": "https://jacom-ishikawa.acoop.jp/shop/list/shop_9.html",
       "status": "requires_review",
+      "robots_status": "robots_available",
       "flyer_ids": [],
       "resources": [],
       "viewer_urls": [],
-      "price_collection": "disabled: permission and complete product evidence required"
+      "price_collection": "disabled: complete product evidence required"
     },
     {
       "store_id": "ja",
       "url": "https://www.is-ja.jp/matto/service/maidosan/",
-      "status": "robots_unavailable",
-      "error": "URLError"
+      "status": "fetch_stopped",
+      "reason": "robots_unreachable"
     },
     {
       "store_id": "valor",
       "url": "https://stores.valor.jp/detail/158/",
-      "status": "robots_unavailable",
-      "error": "HTTPError"
+      "status": "dynamic_source_requires_review",
+      "robots_status": "robots_absent_404",
+      "flyer_ids": [],
+      "resources": [
+        "https://valor-chirashi.com/_tenpo2/dbdsp.cgi?f_dsp=o&mode=dsp_zoom&c_02=00&c_03=01&k_no=158"
+      ],
+      "viewer_urls": [],
+      "price_collection": "disabled: complete product evidence required"
     },
     {
       "store_id": "gyomu",
       "url": "https://www.gyomusuper.jp/shop/detail.php?sh_id=1328",
       "status": "requires_review",
+      "robots_status": "robots_available",
       "flyer_ids": [],
       "resources": [],
       "viewer_urls": [],
-      "price_collection": "disabled: permission and complete product evidence required"
+      "price_collection": "disabled: complete product evidence required"
     },
     {
       "store_id": "aoki_kitayasuda_minami",
       "url": "https://kusuri-aoki-shop-info.com/result?storeCode=585",
-      "status": "requires_review",
-      "flyer_ids": [],
-      "resources": [],
-      "viewer_urls": [],
-      "price_collection": "disabled: permission and complete product evidence required"
+      "status": "fetch_stopped",
+      "reason": "robots_invalid_content"
     }
   ]
 }
