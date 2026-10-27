@@ -27,7 +27,7 @@ for(const s of stores){
 assert.ok(sourceCard(stores.find(s=>s.id==='yamakishi')).includes('公式チラシ'));
 assert.ok(sourceCard(stores.find(s=>s.id==='yamakishi')).includes('価格未確認'));
 collectionStatus={status:'candidates_ready',image_count:2,candidate_count:3,checked_at:'2026-10-27T00:00:00+09:00'};
-assert.ok(sourceCard(stores.find(s=>s.id==='yamakishi')).includes('未確認・価格には未反映'));
+assert.ok(sourceCard(stores.find(s=>s.id==='yamakishi')).includes('OCR候補・自動掲載なし'));
 assert.ok(!sourceCard(stores.find(s=>s.id==='aeon')).includes('野菜名の候補'));
 assert.ok(!sourceLinks({reference_links:[{label:'unsafe',url:'javascript:alert(1)'}]}).includes('href='));
 '''

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-27T19:31:33+09:00",
+  "updated_at": "2026-10-27T21:06:52+09:00",
   "prices": [
     {
       "vegetable_id": "onion",
@@ -115,6 +115,29 @@
       "evidence_text": "15時からのタイムバーゲン。10月29日(木)15時〜の販売。高知県産、他 きゅうり1本 税抜59円 税込63円。公式川北店チラシ表面を目視照合。",
       "conditions": "15時から販売。品切れの場合あり。作柄により産地が異なる場合あり。精算時の税込価格は店頭表示を確認。",
       "valid_from_time": "15:00"
+    },
+    {
+      "store_id": "yamakishi",
+      "vegetable_id": "negi",
+      "price_yen": 117,
+      "unit": "1束",
+      "tax_included": true,
+      "valid_from": "2026-10-28",
+      "valid_until": "2026-10-28",
+      "verified_at": "2026-10-27T12:06:34.914Z",
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1027_kawakita_omote.jpg",
+      "verification_method": "manual_source_review",
+      "evidence_text": "公式川北店チラシの10月28日(水)限りの列に「福井県産、他 白ねぎ 1束」。税抜109円、税込117円。15時からのタイムバーゲン枠とは別の通常の日替わり商品欄。商品欄に購入金額・数量制限・開始時刻の指定なし。欄外に品切れと産地変更の注意あり。",
+      "conditions": "10月28日限り。品切れの場合あり。産地は作柄により異なる場合あり。",
+      "source_image_sha256": "6460034f43de52ff9a2141fb34c6342ef0e11a81507b79114cf22492c3048658",
+      "review_candidate_id": "c9065a37d3bb5163daccf45e",
+      "review_checks": {
+        "store_product": true,
+        "tax_included": true,
+        "quantity": true,
+        "sale_dates": true,
+        "conditions": true
+      }
     }
   ]
 }
