@@ -113,15 +113,25 @@
       "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
       "address": "石川県白山市相木2丁目15-1",
       "kind": "store",
-      "source_check_enabled": true,
-      "source_checked_on": "2026-10-27",
+      "source_check_enabled": false,
+      "source_checked_on": "2026-10-31",
       "reference_links": [
         {
           "label": "公式店舗・チラシ",
           "url": "https://stores.valor.jp/detail/158/"
+        },
+        {
+          "label": "公式チラシビューア",
+          "url": "https://valor-chirashi.com/_tenpo2/dbdsp.cgi?c_02=00&c_03=01&f_dsp=o&k_no=158&mode=dsp_zoom"
+        },
+        {
+          "label": "サイト利用条件",
+          "url": "https://valor.jp/terms/"
         }
       ],
-      "collection_note": "画像のチラシ。確認済み商品のみ掲載し、自動診断と価格取得は区別します。"
+      "collection_note": "利用条件を尊重し、公式リンクのみ掲載。自動取得・価格転載は許諾確認まで停止しています。",
+      "collection_policy": "reference_only",
+      "policy_url": "https://valor.jp/terms/"
     },
     {
       "id": "gyomu",
@@ -160,6 +170,87 @@
       "kind": "store",
       "source_check_enabled": true,
       "flyer_url": "https://kusuri-aoki-shop-info.com/result?storeCode=585"
+    },
+    {
+      "id": "albis_kitayasuda",
+      "name": "アルビス北安田店",
+      "address": "石川県白山市北安田南一丁目308番",
+      "kind": "store",
+      "flyer_url": "https://www.albis.co.jp/home/shop/detail?shopCd=765",
+      "source_check_enabled": false,
+      "collection_policy": "reference_only",
+      "policy_url": "https://www.albis.co.jp/sitepolicy/",
+      "source_checked_on": "2026-10-31",
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
+      "collection_note": "利用条件を尊重し、公式リンクのみ掲載。自動取得・価格転載は許諾確認まで停止しています。",
+      "reference_links": [
+        {
+          "label": "公式店舗・チラシ",
+          "url": "https://www.albis.co.jp/home/shop/detail?shopCd=765"
+        },
+        {
+          "label": "公式チラシ一覧（石川県・店舗を選択）",
+          "url": "https://www.albis.co.jp/home/flyer/ishikawa/"
+        },
+        {
+          "label": "サイト利用条件",
+          "url": "https://www.albis.co.jp/sitepolicy/"
+        }
+      ]
+    },
+    {
+      "id": "albis_terai",
+      "name": "アルビス寺井店",
+      "address": "石川県能美市寺井町ロ90-1",
+      "kind": "store",
+      "flyer_url": "https://www.albis.co.jp/home/shop/detail/752.html",
+      "source_check_enabled": false,
+      "collection_policy": "reference_only",
+      "policy_url": "https://www.albis.co.jp/sitepolicy/",
+      "source_checked_on": "2026-10-31",
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
+      "collection_note": "利用条件を尊重し、公式リンクのみ掲載。自動取得・価格転載は許諾確認まで停止しています。",
+      "reference_links": [
+        {
+          "label": "公式店舗・チラシ",
+          "url": "https://www.albis.co.jp/home/shop/detail/752.html"
+        },
+        {
+          "label": "公式チラシ一覧（石川県・店舗を選択）",
+          "url": "https://www.albis.co.jp/home/flyer/ishikawa/"
+        },
+        {
+          "label": "サイト利用条件",
+          "url": "https://www.albis.co.jp/sitepolicy/"
+        }
+      ]
+    },
+    {
+      "id": "albis_tatsunokuchi",
+      "name": "アルビス辰口店",
+      "address": "石川県能美市三ツ屋町3-1",
+      "kind": "store",
+      "flyer_url": "https://www.albis.co.jp/home/shop/detail/721.html",
+      "source_check_enabled": false,
+      "collection_policy": "reference_only",
+      "policy_url": "https://www.albis.co.jp/sitepolicy/",
+      "source_checked_on": "2026-10-31",
+      "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
+      "collection_note": "利用条件を尊重し、公式リンクのみ掲載。自動取得・価格転載は許諾確認まで停止しています。",
+      "reference_links": [
+        {
+          "label": "公式店舗・チラシ",
+          "url": "https://www.albis.co.jp/home/shop/detail/721.html"
+        },
+        {
+          "label": "公式チラシ一覧（石川県・店舗を選択）",
+          "url": "https://www.albis.co.jp/home/flyer/ishikawa/"
+        },
+        {
+          "label": "サイト利用条件",
+          "url": "https://www.albis.co.jp/sitepolicy/"
+        }
+      ]
     }
   ]
 }

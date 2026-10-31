@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 
 def load_sources():
     stores = json.loads((ROOT / 'stores.json').read_text(encoding='utf-8'))['stores']
-    return {s['id']: s['flyer_url'] for s in stores if s.get('source_check_enabled') is True and s.get('kind') == 'store' and s.get('flyer_url', '').startswith('https://')}
+    return {s['id']: s['flyer_url'] for s in stores if s.get('collection_policy') != 'reference_only' and s.get('source_check_enabled') is True and s.get('kind') == 'store' and s.get('flyer_url', '').startswith('https://')}
 
 
 class Structure(HTMLParser):
@@ -40,8 +40,19 @@ def inspect(url, client=None):
     except (AccessStopped, OSError, TimeoutError) as error:
         return {'status': 'fetch_stopped', 'reason': str(error) if isinstance(error, AccessStopped) else type(error).__name__}
 
+def source_results():
+    stores = json.loads((ROOT / 'stores.json').read_text(encoding='utf-8'))['stores']
+    results = [{'store_id': key, 'url': url, **inspect(url)} for key, url in load_sources().items()]
+    for store in stores:
+        if store.get('kind') == 'store' and store.get('collection_policy') == 'reference_only':
+            results.append({'store_id': store['id'], 'url': store['flyer_url'],
+                            'status': 'reference_only_policy', 'policy_url': store['policy_url'],
+                            'reason': store['collection_note'], 'price_collection': 'disabled_pending_permission'})
+    return results
+
+
 def main():
-    obj={'checked_at':datetime.now().astimezone().isoformat(),'sources':[{ 'store_id':key,'url':url,**inspect(url)} for key,url in load_sources().items()]}
+    obj={'checked_at':datetime.now().astimezone().isoformat(),'sources':source_results()}
     report=json.dumps(obj,ensure_ascii=False,indent=2)
     print(report)
     Path('source_status.json').write_text(report+'\n')

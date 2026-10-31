@@ -16,4 +16,19 @@ class RegistryTests(unittest.TestCase):
         self.assertIn('acoop', sources)
         self.assertNotIn('genky', sources)
         self.assertNotIn('aoki', sources)
-        self.assertEqual(len(sources), 7)
+        self.assertEqual(len(sources), 6)
+        self.assertNotIn('valor', sources)
+        self.assertFalse(any(key.startswith('albis_') for key in sources))
+
+    def test_policy_stores_are_reported_without_network(self):
+        from unittest.mock import patch
+        from check_sources import source_results
+        with patch('check_sources.inspect', return_value={'status': 'test'}) as inspect_source:
+            results = source_results()
+        requested = {call.args[0] for call in inspect_source.call_args_list}
+        skipped = [r for r in results if r['status'] == 'reference_only_policy']
+        self.assertEqual({r['store_id'] for r in skipped}, {'valor', 'albis_kitayasuda', 'albis_terai', 'albis_tatsunokuchi'})
+        for record in skipped:
+            self.assertNotIn(record['url'], requested)
+            self.assertEqual(record['price_collection'], 'disabled_pending_permission')
+            self.assertTrue(record['policy_url'].startswith('https://'))

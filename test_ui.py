@@ -29,6 +29,7 @@ assert.ok(sourceCard(stores.find(s=>s.id==='yamakishi')).includes('価格未確�
 collectionStatus={status:'candidates_ready',image_count:2,candidate_count:3,checked_at:'2026-10-27T00:00:00+09:00'};
 assert.ok(sourceCard(stores.find(s=>s.id==='yamakishi')).includes('OCR候補・自動掲載なし'));
 assert.ok(!sourceCard(stores.find(s=>s.id==='aeon')).includes('野菜名の候補'));
+for(const s of stores.filter(s=>s.collection_policy==='reference_only'))assert.ok(sourceCard(s).includes('公式リンクのみ・自動取得停止'));
 assert.ok(!sourceLinks({reference_links:[{label:'unsafe',url:'javascript:alert(1)'}]}).includes('href='));
 '''
         js += 'const offers='+json.dumps(offers, ensure_ascii=False)+';\n'
