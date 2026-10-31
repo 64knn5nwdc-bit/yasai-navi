@@ -22,7 +22,7 @@ def official_image(url):
     if not isinstance(url, str):
         return False
     p = urlsplit(url)
-    return p.scheme == 'https' and p.netloc == 'yamakishi.co.jp' and not p.query and not p.fragment and bool(re.fullmatch(r'/news/wp-content/uploads/\d{4}/\d{2}/\d{4}_(kawakita_omote|shoku_ura)\.jpg', p.path))
+    return p.scheme == 'https' and p.netloc == 'yamakishi.co.jp' and not p.query and not p.fragment and bool(re.fullmatch(r'/news/wp-content/uploads/\d{4}/\d{2}/\d{4}_(kawakita_omote|shoku_ura|oogata_ura)(?:-scaled)?\.jpg', p.path))
 
 def prepare(draft, manifest, existing, stores, now):
     if draft.get('schema_version') != 1 or draft.get('publication_status') != 'draft_not_published':

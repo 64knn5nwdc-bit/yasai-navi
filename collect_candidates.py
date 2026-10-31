@@ -44,7 +44,7 @@ class FlyerLinks(HTMLParser):
         if tag == 'a' and '川北店のチラシ' in self.heading and '有効期限' in self.heading:
             url = urljoin(SOURCE, d.get('href', ''))
             path = urlsplit(url).path
-            if urlsplit(url).hostname == 'yamakishi.co.jp' and re.fullmatch(r'/news/wp-content/uploads/\d{4}/\d{2}/\d{4}_(?:kawakita_omote|shoku_ura)\.jpg', path):
+            if urlsplit(url).hostname == 'yamakishi.co.jp' and re.fullmatch(r'/news/wp-content/uploads/\d{4}/\d{2}/\d{4}_(?:kawakita_omote|shoku_ura|oogata_ura)(?:-scaled)?\.jpg', path):
                 pair = (self.heading.strip(), url)
                 if pair not in self.links:
                     self.links.append(pair)

@@ -4,7 +4,7 @@
   const vegetables={cabbage:'キャベツ',onion:'玉ねぎ',negi:'ねぎ',carrot:'にんじん',potato:'じゃがいも',daikon:'大根',tomato:'トマト',cucumber:'きゅうり',hakusai:'白菜',komatsuna:'小松菜',spinach:'ほうれん草'};
   const checks=['store_product','tax_included','quantity','sale_dates','conditions'];
   function sourceUrl(value){
-    try{const u=new URL(value);return u.protocol==='https:'&&u.hostname==='yamakishi.co.jp'&&!u.port&&!u.username&&!u.password&&!u.search&&!u.hash&&/^\/news\/wp-content\/uploads\/\d{4}\/\d{2}\/\d{4}_(kawakita_omote|shoku_ura)\.jpg$/.test(u.pathname)?u.href:null}catch{return null}
+    try{const u=new URL(value);return u.protocol==='https:'&&u.hostname==='yamakishi.co.jp'&&!u.port&&!u.username&&!u.password&&!u.search&&!u.hash&&/^\/news\/wp-content\/uploads\/\d{4}\/\d{2}\/\d{4}_(kawakita_omote|shoku_ura|oogata_ura)(-scaled)?\.jpg$/.test(u.pathname)?u.href:null}catch{return null}
   }
   function realDate(value){if(!/^\d{4}-\d{2}-\d{2}$/.test(value||''))return false;const d=new Date(value+'T00:00:00Z');return !isNaN(d)&&d.toISOString().slice(0,10)===value}
   function usableCandidates(manifest){

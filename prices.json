@@ -1,5 +1,75 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-30T08:24:48+09:00",
-  "prices": []
+  "updated_at": "2026-10-31T12:00:13+09:00",
+  "prices": [
+    {
+      "store_id": "yamakishi",
+      "vegetable_id": "spinach",
+      "price_yen": 106,
+      "unit": "1袋",
+      "tax_included": true,
+      "valid_from": "2026-10-31",
+      "valid_until": "2026-10-31",
+      "verified_at": "2026-10-31T02:59:55.667Z",
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1030_kawakita_omote-scaled.jpg",
+      "verification_method": "manual_source_review",
+      "evidence_text": "公式川北店チラシの10/31(土)限りの欄。静岡県産、他 ほうれん草1袋、税抜99円、税込106円。隣のみかん箱の購入制限と区別して原本を照合。",
+      "conditions": "10月31日限り。品切れの場合あり。作柄により産地が異なる場合あり。",
+      "source_image_sha256": "c969eab2b514152e57bbe30248e883c5fcb9e7435514b853be50347d8ccd4f59",
+      "review_candidate_id": "60130bd78d342e0832e4d974",
+      "review_checks": {
+        "store_product": true,
+        "tax_included": true,
+        "quantity": true,
+        "sale_dates": true,
+        "conditions": true
+      }
+    },
+    {
+      "store_id": "yamakishi",
+      "vegetable_id": "cucumber",
+      "price_yen": 171,
+      "unit": "3本入",
+      "tax_included": true,
+      "valid_from": "2026-10-30",
+      "valid_until": "2026-11-02",
+      "verified_at": "2026-10-31T02:59:55.667Z",
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1030_kawakita_omote-scaled.jpg",
+      "verification_method": "manual_source_review",
+      "evidence_text": "公式川北店チラシの共通青果欄。高知県産、他 きゅうり3本入、税抜159円、税込171円。左上のセール期間10/30(金)〜11/2(月)を確認。日替わり欄や数量限定表示のある別商品と区別。",
+      "conditions": "セール期間10月30日〜11月2日。品切れの場合あり。作柄により産地が異なる場合あり。",
+      "source_image_sha256": "c969eab2b514152e57bbe30248e883c5fcb9e7435514b853be50347d8ccd4f59",
+      "review_candidate_id": "08c07f3e66c8e4976e324038",
+      "review_checks": {
+        "store_product": true,
+        "tax_included": true,
+        "quantity": true,
+        "sale_dates": true,
+        "conditions": true
+      }
+    },
+    {
+      "store_id": "yamakishi",
+      "vegetable_id": "cabbage",
+      "price_yen": 214,
+      "unit": "1玉",
+      "tax_included": true,
+      "valid_from": "2026-10-30",
+      "valid_until": "2026-11-02",
+      "verified_at": "2026-10-31T02:59:55.667Z",
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1030_kawakita_omote-scaled.jpg",
+      "verification_method": "manual_source_review",
+      "evidence_text": "公式川北店チラシの共通青果欄。群馬県産、他 キャベツ1玉、税抜199円、税込214円。左上のセール期間10/30(金)〜11/2(月)を確認。10/27の時刻限定特売とは異なる原本で、当該商品欄に開始時刻・数量制限の指定なし。",
+      "conditions": "セール期間10月30日〜11月2日。品切れの場合あり。作柄により産地が異なる場合あり。",
+      "source_image_sha256": "c969eab2b514152e57bbe30248e883c5fcb9e7435514b853be50347d8ccd4f59",
+      "review_candidate_id": "3d90c48f74c039d0247ae2b2",
+      "review_checks": {
+        "store_product": true,
+        "tax_included": true,
+        "quantity": true,
+        "sale_dates": true,
+        "conditions": true
+      }
+    }
+  ]
 }

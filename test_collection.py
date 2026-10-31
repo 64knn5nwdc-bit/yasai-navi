@@ -33,6 +33,15 @@ class AccessTests(unittest.TestCase):
         with self.assertRaises(AccessStopped):SameHostRedirects().redirect_request(Request('https://example.org/'),None,302,'',{},'https://other.org/')
 
 class CandidateTests(unittest.TestCase):
+    def test_current_scaled_flyer_links_and_cross_month_dates(self):
+        base='https://yamakishi.co.jp/news/wp-content/uploads/2026/10/'
+        parser=collector.FlyerLinks()
+        parser.feed('<h2>有効期限 10/30(金)～11/2(月) 川北店のチラシ</h2>'+''.join('<a href="'+base+name+'">原本</a>' for name in ['1030_kawakita_omote-scaled.jpg','1030_oogata_ura-scaled.jpg','1130_reform_sogo_omote_kawakita.jpg','2026Xmasチラシ1016_02-scaled.jpg','1030_asahi_omote-scaled.jpg']))
+        self.assertEqual(len(parser.links),2)
+        for title,url in parser.links:
+            period=collector.flyer_period(title,url)
+            self.assertEqual((period['start'],period['end']),('2026-10-30','2026-11-02'))
+
     def test_near_names_remain_uncertain_and_do_not_create_prices(self):
         self.assertEqual(collector.name_matches('キャベツ'), [('cabbage','exact_text')])
         self.assertEqual(collector.name_matches('きゅうし'), [('cucumber','one_character_difference')])
