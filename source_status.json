@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-31T03:03:48.635795+00:00",
+  "checked_at": "2026-10-31T04:33:28.570451+00:00",
   "sources": [
     {
       "store_id": "yamakishi",
@@ -45,18 +45,6 @@
       "reason": "robots_unreachable"
     },
     {
-      "store_id": "valor",
-      "url": "https://stores.valor.jp/detail/158/",
-      "status": "dynamic_source_requires_review",
-      "robots_status": "robots_absent_404",
-      "flyer_ids": [],
-      "resources": [
-        "https://valor-chirashi.com/_tenpo2/dbdsp.cgi?f_dsp=o&mode=dsp_zoom&c_02=00&c_03=01&k_no=158"
-      ],
-      "viewer_urls": [],
-      "price_collection": "disabled: complete product evidence required"
-    },
-    {
       "store_id": "gyomu",
       "url": "https://www.gyomusuper.jp/shop/detail.php?sh_id=1328",
       "status": "requires_review",
@@ -71,6 +59,38 @@
       "url": "https://kusuri-aoki-shop-info.com/result?storeCode=585",
       "status": "fetch_stopped",
       "reason": "robots_invalid_content"
+    },
+    {
+      "store_id": "valor",
+      "url": "https://stores.valor.jp/detail/158/",
+      "status": "reference_only_policy",
+      "policy_url": "https://valor.jp/terms/",
+      "reason": "利用条件を尊重し、公式リンクのみ掲載。自動取得・価格転載は許諾確認まで停止しています。",
+      "price_collection": "disabled_pending_permission"
+    },
+    {
+      "store_id": "albis_kitayasuda",
+      "url": "https://www.albis.co.jp/home/shop/detail?shopCd=765",
+      "status": "reference_only_policy",
+      "policy_url": "https://www.albis.co.jp/sitepolicy/",
+      "reason": "利用条件を尊重し、公式リンクのみ掲載。自動取得・価格転載は許諾確認まで停止しています。",
+      "price_collection": "disabled_pending_permission"
+    },
+    {
+      "store_id": "albis_terai",
+      "url": "https://www.albis.co.jp/home/shop/detail/752.html",
+      "status": "reference_only_policy",
+      "policy_url": "https://www.albis.co.jp/sitepolicy/",
+      "reason": "利用条件を尊重し、公式リンクのみ掲載。自動取得・価格転載は許諾確認まで停止しています。",
+      "price_collection": "disabled_pending_permission"
+    },
+    {
+      "store_id": "albis_tatsunokuchi",
+      "url": "https://www.albis.co.jp/home/shop/detail/721.html",
+      "status": "reference_only_policy",
+      "policy_url": "https://www.albis.co.jp/sitepolicy/",
+      "reason": "利用条件を尊重し、公式リンクのみ掲載。自動取得・価格転載は許諾確認まで停止しています。",
+      "price_collection": "disabled_pending_permission"
     }
   ]
 }
