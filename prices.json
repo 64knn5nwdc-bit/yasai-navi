@@ -1,30 +1,7 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-31T12:00:13+09:00",
+  "updated_at": "2026-11-02T08:23:35+09:00",
   "prices": [
-    {
-      "store_id": "yamakishi",
-      "vegetable_id": "spinach",
-      "price_yen": 106,
-      "unit": "1袋",
-      "tax_included": true,
-      "valid_from": "2026-10-31",
-      "valid_until": "2026-10-31",
-      "verified_at": "2026-10-31T02:59:55.667Z",
-      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1030_kawakita_omote-scaled.jpg",
-      "verification_method": "manual_source_review",
-      "evidence_text": "公式川北店チラシの10/31(土)限りの欄。静岡県産、他 ほうれん草1袋、税抜99円、税込106円。隣のみかん箱の購入制限と区別して原本を照合。",
-      "conditions": "10月31日限り。品切れの場合あり。作柄により産地が異なる場合あり。",
-      "source_image_sha256": "c969eab2b514152e57bbe30248e883c5fcb9e7435514b853be50347d8ccd4f59",
-      "review_candidate_id": "60130bd78d342e0832e4d974",
-      "review_checks": {
-        "store_product": true,
-        "tax_included": true,
-        "quantity": true,
-        "sale_dates": true,
-        "conditions": true
-      }
-    },
     {
       "store_id": "yamakishi",
       "vegetable_id": "cucumber",
