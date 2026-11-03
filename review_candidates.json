@@ -1,80 +1,51 @@
 {
   "schema_version": 2,
-  "last_success_at": "2026-11-02T08:22:37+09:00",
+  "last_success_at": "2026-11-04T08:28:24+09:00",
   "warning": "UNVERIFIED OCR HINTS. Never use as prices or product sale dates.",
   "robots_status": "robots_absent_404",
   "images": [
     {
-      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1030_kawakita_omote-scaled.jpg",
-      "sha256": "c969eab2b514152e57bbe30248e883c5fcb9e7435514b853be50347d8ccd4f59",
-      "width": 2560,
-      "height": 1794,
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/11/1103_kawakita_omote.jpg",
+      "sha256": "e2e3c868b46039feb48070b1fe70fa15e195f98d67e726b1b04f1ffc5d4563f9",
+      "width": 2256,
+      "height": 1606,
       "flyer_period": {
-        "start": "2026-10-30",
-        "end": "2026-11-02",
+        "start": "2026-11-03",
+        "end": "2026-11-05",
         "kind": "flyer_metadata_not_product_sale_dates"
       },
-      "ocr_product_hints": 4
+      "ocr_product_hints": 2
     },
     {
-      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1030_oogata_ura-scaled.jpg",
-      "sha256": "981908482a43f2c6ee1b73e78d3702295a46e6a101040958a6c506c46b5c4b7a",
-      "width": 2560,
-      "height": 1795,
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/11/1103_shoku_ura.jpg",
+      "sha256": "a4cd9026472e3351580a8a41172f2e979a8a64b1be495f46fb3aff956dec4404",
+      "width": 2256,
+      "height": 1606,
       "flyer_period": {
-        "start": "2026-10-30",
-        "end": "2026-11-02",
+        "start": "2026-11-03",
+        "end": "2026-11-05",
         "kind": "flyer_metadata_not_product_sale_dates"
       },
-      "ocr_product_hints": 1
+      "ocr_product_hints": 0
     }
   ],
   "candidates": [
     {
-      "id": "0f0f167f86fb39aa55d8fb63",
+      "id": "d6a320807fd835663d4d6705",
       "store_id": "yamakishi",
-      "vegetable_hint": "negi",
-      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1030_kawakita_omote-scaled.jpg",
-      "image_sha256": "c969eab2b514152e57bbe30248e883c5fcb9e7435514b853be50347d8ccd4f59",
+      "vegetable_hint": "carrot",
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/11/1103_kawakita_omote.jpg",
+      "image_sha256": "e2e3c868b46039feb48070b1fe70fa15e195f98d67e726b1b04f1ffc5d4563f9",
       "ocr_mode": 11,
       "bbox": [
-        79,
-        417,
-        56,
-        31
+        260,
+        870,
+        59,
+        20
       ],
-      "ocr_confidence": 89.17,
-      "match_method": "exact_text",
-      "evidence_hint": "白ねぎ",
-      "review_status": "unverified",
-      "price_yen": null,
-      "unit": null,
-      "valid_from": null,
-      "valid_until": null,
-      "review_required": [
-        "product_price_association",
-        "tax_included_price",
-        "quantity_unit",
-        "product_sale_dates_and_times",
-        "purchase_conditions"
-      ]
-    },
-    {
-      "id": "60130bd78d342e0832e4d974",
-      "store_id": "yamakishi",
-      "vegetable_hint": "spinach",
-      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1030_kawakita_omote-scaled.jpg",
-      "image_sha256": "c969eab2b514152e57bbe30248e883c5fcb9e7435514b853be50347d8ccd4f59",
-      "ocr_mode": 11,
-      "bbox": [
-        876,
-        490,
-        82,
-        36
-      ],
-      "ocr_confidence": 69.93,
+      "ocr_confidence": 81.08,
       "match_method": "one_character_difference",
-      "evidence_hint": "ほうれん:",
+      "evidence_hint": "にんじ",
       "review_status": "unverified",
       "price_yen": null,
       "unit": null,
@@ -89,79 +60,21 @@
       ]
     },
     {
-      "id": "08c07f3e66c8e4976e324038",
-      "store_id": "yamakishi",
-      "vegetable_hint": "cucumber",
-      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1030_kawakita_omote-scaled.jpg",
-      "image_sha256": "c969eab2b514152e57bbe30248e883c5fcb9e7435514b853be50347d8ccd4f59",
-      "ocr_mode": 11,
-      "bbox": [
-        259,
-        1143,
-        55,
-        28
-      ],
-      "ocr_confidence": 91.66,
-      "match_method": "exact_text",
-      "evidence_hint": "きゅうり",
-      "review_status": "unverified",
-      "price_yen": null,
-      "unit": null,
-      "valid_from": null,
-      "valid_until": null,
-      "review_required": [
-        "product_price_association",
-        "tax_included_price",
-        "quantity_unit",
-        "product_sale_dates_and_times",
-        "purchase_conditions"
-      ]
-    },
-    {
-      "id": "3d90c48f74c039d0247ae2b2",
+      "id": "ef45794c0b8e6a0c02cbef59",
       "store_id": "yamakishi",
       "vegetable_hint": "cabbage",
-      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1030_kawakita_omote-scaled.jpg",
-      "image_sha256": "c969eab2b514152e57bbe30248e883c5fcb9e7435514b853be50347d8ccd4f59",
+      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/11/1103_kawakita_omote.jpg",
+      "image_sha256": "e2e3c868b46039feb48070b1fe70fa15e195f98d67e726b1b04f1ffc5d4563f9",
       "ocr_mode": 11,
       "bbox": [
-        380,
-        1264,
-        56,
-        13
+        1505,
+        872,
+        76,
+        19
       ],
-      "ocr_confidence": 90.08,
+      "ocr_confidence": 95.29,
       "match_method": "exact_text",
       "evidence_hint": "キャベツ",
-      "review_status": "unverified",
-      "price_yen": null,
-      "unit": null,
-      "valid_from": null,
-      "valid_until": null,
-      "review_required": [
-        "product_price_association",
-        "tax_included_price",
-        "quantity_unit",
-        "product_sale_dates_and_times",
-        "purchase_conditions"
-      ]
-    },
-    {
-      "id": "2def9ca65650727e5bb19dbd",
-      "store_id": "yamakishi",
-      "vegetable_hint": "onion",
-      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1030_oogata_ura-scaled.jpg",
-      "image_sha256": "981908482a43f2c6ee1b73e78d3702295a46e6a101040958a6c506c46b5c4b7a",
-      "ocr_mode": 11,
-      "bbox": [
-        160,
-        616,
-        45,
-        11
-      ],
-      "ocr_confidence": 55.94,
-      "match_method": "exact_text",
-      "evidence_hint": "玉ねぎの",
       "review_status": "unverified",
       "price_yen": null,
       "unit": null,
