@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-09T08:23:08+09:00",
+  "checked_at": "2026-11-11T08:24:15+09:00",
   "store_id": "yamakishi",
   "source_url": "https://yamakishi.co.jp/news/kawakita",
   "publication_mode": "candidate_only",
   "auto_publish": false,
   "status": "collection_stopped",
-  "reason": "flyer_period_requires_review"
+  "reason": "redirect_requires_review"
 }
