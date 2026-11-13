@@ -1,51 +1,51 @@
 {
   "schema_version": 2,
-  "last_success_at": "2026-11-04T08:28:24+09:00",
+  "last_success_at": "2026-11-13T11:00:10+09:00",
   "warning": "UNVERIFIED OCR HINTS. Never use as prices or product sale dates.",
   "robots_status": "robots_absent_404",
   "images": [
     {
-      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/11/1103_kawakita_omote.jpg",
-      "sha256": "e2e3c868b46039feb48070b1fe70fa15e195f98d67e726b1b04f1ffc5d4563f9",
-      "width": 2256,
-      "height": 1606,
+      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1113_kawakita_omote.jpg",
+      "sha256": "12229e71c13b277978a532cbcc1d3a8b182bd34ca9ca96ea304992f911837b0b",
+      "width": 1606,
+      "height": 2255,
       "flyer_period": {
-        "start": "2026-11-03",
-        "end": "2026-11-05",
+        "start": "2026-11-13",
+        "end": "2026-11-16",
+        "kind": "flyer_metadata_not_product_sale_dates"
+      },
+      "ocr_product_hints": 1
+    },
+    {
+      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1113_kawakita_ura.jpg",
+      "sha256": "8d6002d35cb94312c7c7dfca9d888c3d0aa18462c9010a9e4d3f2992cd94112c",
+      "width": 1606,
+      "height": 2255,
+      "flyer_period": {
+        "start": "2026-11-13",
+        "end": "2026-11-16",
         "kind": "flyer_metadata_not_product_sale_dates"
       },
       "ocr_product_hints": 2
-    },
-    {
-      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/11/1103_shoku_ura.jpg",
-      "sha256": "a4cd9026472e3351580a8a41172f2e979a8a64b1be495f46fb3aff956dec4404",
-      "width": 2256,
-      "height": 1606,
-      "flyer_period": {
-        "start": "2026-11-03",
-        "end": "2026-11-05",
-        "kind": "flyer_metadata_not_product_sale_dates"
-      },
-      "ocr_product_hints": 0
     }
   ],
   "candidates": [
     {
-      "id": "d6a320807fd835663d4d6705",
+      "id": "120178cde415a5bb5911d434",
       "store_id": "yamakishi",
-      "vegetable_hint": "carrot",
-      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/11/1103_kawakita_omote.jpg",
-      "image_sha256": "e2e3c868b46039feb48070b1fe70fa15e195f98d67e726b1b04f1ffc5d4563f9",
+      "vegetable_hint": "negi",
+      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1113_kawakita_omote.jpg",
+      "image_sha256": "12229e71c13b277978a532cbcc1d3a8b182bd34ca9ca96ea304992f911837b0b",
       "ocr_mode": 11,
       "bbox": [
-        260,
-        870,
-        59,
-        20
+        103,
+        633,
+        84,
+        44
       ],
-      "ocr_confidence": 81.08,
-      "match_method": "one_character_difference",
-      "evidence_hint": "にんじ",
+      "ocr_confidence": 88.34,
+      "match_method": "exact_text",
+      "evidence_hint": "白ねぎ",
       "review_status": "unverified",
       "price_yen": null,
       "unit": null,
@@ -60,21 +60,50 @@
       ]
     },
     {
-      "id": "ef45794c0b8e6a0c02cbef59",
+      "id": "320e08dc9d0ea4154e3ab714",
       "store_id": "yamakishi",
-      "vegetable_hint": "cabbage",
-      "source_url": "https://yamakishi.co.jp/news/wp-content/uploads/2026/11/1103_kawakita_omote.jpg",
-      "image_sha256": "e2e3c868b46039feb48070b1fe70fa15e195f98d67e726b1b04f1ffc5d4563f9",
+      "vegetable_hint": "tomato",
+      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1113_kawakita_ura.jpg",
+      "image_sha256": "8d6002d35cb94312c7c7dfca9d888c3d0aa18462c9010a9e4d3f2992cd94112c",
       "ocr_mode": 11,
       "bbox": [
-        1505,
-        872,
-        76,
-        19
+        752,
+        1337,
+        48,
+        31
       ],
-      "ocr_confidence": 95.29,
+      "ocr_confidence": 92.65,
       "match_method": "exact_text",
-      "evidence_hint": "キャベツ",
+      "evidence_hint": "トマト",
+      "review_status": "unverified",
+      "price_yen": null,
+      "unit": null,
+      "valid_from": null,
+      "valid_until": null,
+      "review_required": [
+        "product_price_association",
+        "tax_included_price",
+        "quantity_unit",
+        "product_sale_dates_and_times",
+        "purchase_conditions"
+      ]
+    },
+    {
+      "id": "d51c6d848a16334aba4f8405",
+      "store_id": "yamakishi",
+      "vegetable_hint": "daikon",
+      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1113_kawakita_ura.jpg",
+      "image_sha256": "8d6002d35cb94312c7c7dfca9d888c3d0aa18462c9010a9e4d3f2992cd94112c",
+      "ocr_mode": 11,
+      "bbox": [
+        809,
+        1337,
+        42,
+        32
+      ],
+      "ocr_confidence": 92.74,
+      "match_method": "exact_text",
+      "evidence_hint": "大根",
       "review_status": "unverified",
       "price_yen": null,
       "unit": null,

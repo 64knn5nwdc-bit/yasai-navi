@@ -1,11 +1,15 @@
 {
-  "checked_at": "2026-11-12T23:29:10.112190+00:00",
+  "checked_at": "2026-11-13T01:59:48.673801+00:00",
   "sources": [
     {
       "store_id": "yamakishi",
-      "url": "https://yamakishi.co.jp/news/kawakita",
-      "status": "fetch_stopped",
-      "reason": "redirect_requires_review"
+      "url": "https://www.yamakishi.co.jp/news/kawakita",
+      "status": "requires_review",
+      "robots_status": "robots_absent_404",
+      "flyer_ids": [],
+      "resources": [],
+      "viewer_urls": [],
+      "price_collection": "disabled: complete product evidence required"
     },
     {
       "store_id": "aeon",
