@@ -45,12 +45,12 @@ const carrot={...offers.find(p=>p.store_id==='yamakishi'&&p.vegetable_id==='carr
 assert.equal(valid(carrot),false);
 clock='2026-10-29T09:00:00+09:00';assert.equal(valid(carrot),true);
 '''
-        js += """
+        js += r"""
 (async()=>{
   const calls=[];
   global.fetch=async(url,options)=>{calls.push(url);return {ok:true}};
   assert.equal((await fetchData('prices.json')).ok,true);
-  assert.equal(calls[0],'https://raw.githubusercontent.com/64knn5nwdc-bit/yasai-navi/main/prices.json');
+  assert.match(calls[0],/^https:\/\/raw\.githubusercontent\.com\/64knn5nwdc-bit\/yasai-navi\/main\/prices\.json\?refresh=\d+$/);
   global.fetch=async(url)=>{calls.push(url);if(url.startsWith('https:'))throw Error('offline');return {ok:true}};
   assert.equal((await fetchData('stores.json')).ok,true);
   assert.equal(calls.at(-1),'./stores.json');
