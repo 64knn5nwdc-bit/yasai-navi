@@ -37,13 +37,13 @@
     {
       "id": "yamakishi",
       "name": "ヤマキシ川北店",
-      "flyer_url": "https://yamakishi.co.jp/news/kawakita",
+      "flyer_url": "https://www.yamakishi.co.jp/news/kawakita",
       "travel_time_status": "未確認：源兵島町から車で約20分以内か要確認",
       "address": "石川県能美郡川北町字三反田中216-1",
       "reference_links": [
         {
           "label": "公式チラシ",
-          "url": "https://yamakishi.co.jp/news/kawakita"
+          "url": "https://www.yamakishi.co.jp/news/kawakita"
         },
         {
           "label": "公式店舗情報",
@@ -51,7 +51,7 @@
         }
       ],
       "collection_note": "公式チラシは画像形式。掲載期間と商品ごとの販売日・税込価格の照合が必要。",
-      "source_checked_on": "2026-10-27",
+      "source_checked_on": "2026-11-13",
       "kind": "store",
       "source_check_enabled": true
     },

@@ -23,7 +23,7 @@ from urllib.parse import urljoin, urlsplit
 from source_access import SourceClient, AccessStopped
 
 ROOT = Path(__file__).resolve().parent
-SOURCE = 'https://yamakishi.co.jp/news/kawakita'
+SOURCE = 'https://www.yamakishi.co.jp/news/kawakita'
 NAMES = {'negi': ('白ねぎ', '長ねぎ'), 'cabbage': ('キャベツ',), 'onion': ('玉ねぎ', 'たまねぎ'),
          'carrot': ('にんじん', '人参'), 'potato': ('じゃがいも',),
          'daikon': ('大根', 'だいこん'), 'tomato': ('トマト',),
@@ -44,7 +44,7 @@ class FlyerLinks(HTMLParser):
         if tag == 'a' and '川北店のチラシ' in self.heading and '有効期限' in self.heading:
             url = urljoin(SOURCE, d.get('href', ''))
             path = urlsplit(url).path
-            if urlsplit(url).hostname == 'yamakishi.co.jp' and re.fullmatch(r'/news/wp-content/uploads/\d{4}/\d{2}/\d{4}_(?:kawakita_omote|shoku_ura|oogata_ura)(?:-scaled)?\.jpg', path):
+            if urlsplit(url).netloc in ('yamakishi.co.jp', 'www.yamakishi.co.jp') and re.fullmatch(r'/news/wp-content/uploads/\d{4}/\d{2}/\d{4}_(?:kawakita_omote|kawakita_ura|shoku_ura|oogata_ura)(?:-scaled)?\.jpg', path):
                 pair = (self.heading.strip(), url)
                 if pair not in self.links:
                     self.links.append(pair)

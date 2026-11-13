@@ -14,8 +14,8 @@ import import_reviews as importer
 
 class ReviewImportTests(unittest.TestCase):
     def test_only_observed_official_scaled_image_names_are_allowed(self):
-        base='https://yamakishi.co.jp/news/wp-content/uploads/2026/10/'
-        for name in ['1030_kawakita_omote-scaled.jpg','1030_oogata_ura-scaled.jpg']:
+        base='https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/'
+        for name in ['1113_kawakita_omote.jpg','1113_kawakita_ura.jpg','1030_oogata_ura-scaled.jpg']:
             self.assertTrue(importer.official_image(base+name))
         for name in ['1030_asahi_omote-scaled.jpg','1130_reform_sogo_omote_kawakita.jpg','1030_oogata_ura-scaled.jpg?alternate=1']:
             self.assertFalse(importer.official_image(base+name))
@@ -77,6 +77,8 @@ class ReviewBrowserLogicTests(unittest.TestCase):
 const assert=require('node:assert/strict'), R=require('./review-core.js');
 const url='https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1027_kawakita_omote.jpg';
 for(const name of ['1030_kawakita_omote-scaled.jpg','1030_oogata_ura-scaled.jpg'])assert.ok(R.sourceUrl('https://yamakishi.co.jp/news/wp-content/uploads/2026/10/'+name));
+assert.ok(R.sourceUrl('https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1113_kawakita_ura.jpg'));
+assert.equal(R.sourceUrl('https://evil.yamakishi.co.jp/news/wp-content/uploads/2026/11/1113_kawakita_ura.jpg'),null);
 assert.equal(R.sourceUrl('https://yamakishi.co.jp/news/wp-content/uploads/2026/10/1030_asahi_omote-scaled.jpg'),null);
 const c={id:'a'.repeat(24),store_id:'yamakishi',vegetable_hint:'cabbage',review_status:'unverified',source_url:url,image_sha256:'b'.repeat(64),bbox:[459,147,77,19]};
 const image={source_url:url,sha256:c.image_sha256,width:2256,height:1606,flyer_period:{start:'2026-10-27',end:'2026-10-29'}};

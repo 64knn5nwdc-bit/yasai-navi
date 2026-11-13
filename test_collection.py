@@ -33,6 +33,14 @@ class AccessTests(unittest.TestCase):
         with self.assertRaises(AccessStopped):SameHostRedirects().redirect_request(Request('https://example.org/'),None,302,'',{},'https://other.org/')
 
 class CandidateTests(unittest.TestCase):
+    def test_current_www_food_flyer_and_untrusted_hosts(self):
+        base='https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/'
+        parser=collector.FlyerLinks()
+        urls=[base+'1113_kawakita_omote.jpg',base+'1113_kawakita_ura.jpg',base+'1113_asahi_omote.jpg',base.replace('www.yamakishi.co.jp','evil.yamakishi.co.jp')+'1113_kawakita_ura.jpg',base.replace('www.yamakishi.co.jp','user@www.yamakishi.co.jp')+'1113_kawakita_ura.jpg']
+        parser.feed('<h2>有効期限 11/13(金)～11/16(月) 川北店のチラシ</h2>'+''.join('<a href="'+u+'">原本</a>' for u in urls))
+        self.assertEqual([u for _,u in parser.links],urls[:2])
+        self.assertEqual(collector.flyer_period(*parser.links[1])['end'],'2026-11-16')
+
     def test_current_scaled_flyer_links_and_cross_month_dates(self):
         base='https://yamakishi.co.jp/news/wp-content/uploads/2026/10/'
         parser=collector.FlyerLinks()
