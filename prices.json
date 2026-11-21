@@ -1,5 +1,52 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-18T08:38:55+09:00",
-  "prices": []
+  "updated_at": "2026-11-21T09:49:10+09:00",
+  "prices": [
+    {
+      "store_id": "yamakishi",
+      "vegetable_id": "tomato",
+      "price_yen": 106,
+      "unit": "1パック（ミニトマト150g）",
+      "tax_included": true,
+      "valid_from": "2026-11-20",
+      "valid_until": "2026-11-23",
+      "verified_at": "2026-11-21T00:49:09.968Z",
+      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1120_kawakita_ura.jpg",
+      "verification_method": "manual_source_review",
+      "evidence_text": "裏面「ヤマキシ川北店 11月20日(金)～11月23日(祝)のお買い得品」の青果欄：愛知県産、他 ミニトマト150g 1パック。税抜99円、税込価格106円。個別の日替わり指定なし。",
+      "conditions": "ミニトマト150g。愛知県産、他。売り切れの場合あり。",
+      "source_image_sha256": "01f0675f47fe0c6d6359a3816fa79defaf01e9fff6afd22a1936491b6778a958",
+      "review_candidate_id": "56faf70b248875095f494533",
+      "review_checks": {
+        "store_product": true,
+        "tax_included": true,
+        "quantity": true,
+        "sale_dates": true,
+        "conditions": true
+      }
+    },
+    {
+      "store_id": "yamakishi",
+      "vegetable_id": "daikon",
+      "price_yen": 96,
+      "unit": "1本",
+      "tax_included": true,
+      "valid_from": "2026-11-22",
+      "valid_until": "2026-11-22",
+      "verified_at": "2026-11-21T00:49:09.968Z",
+      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1120_kawakita_omote.jpg",
+      "verification_method": "manual_source_review",
+      "evidence_text": "表面の「11/22(日)限り」の欄：石川県産、他 大根1本。税抜89円、税込価格96円。ヤマキシ川北店。",
+      "conditions": "11月22日限り。石川県産、他。売り切れの場合あり。",
+      "source_image_sha256": "060b502add07782dd4e05c08c2d5f852ebbc2ce1f92b3a1d95447b4577447cf1",
+      "review_candidate_id": "475adbcd008646ccdcc104b7",
+      "review_checks": {
+        "store_product": true,
+        "tax_included": true,
+        "quantity": true,
+        "sale_dates": true,
+        "conditions": true
+      }
+    }
+  ]
 }
