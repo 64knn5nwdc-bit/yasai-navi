@@ -1,80 +1,51 @@
 {
   "schema_version": 2,
-  "last_success_at": "2026-11-25T08:39:12+09:00",
+  "last_success_at": "2026-11-27T13:39:41+09:00",
   "warning": "UNVERIFIED OCR HINTS. Never use as prices or product sale dates.",
   "robots_status": "robots_absent_404",
   "images": [
     {
-      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1124_kawakita_omote.jpg",
-      "sha256": "3994dcd619137976e5db49fef888ace7b75b4b26498f5ffd0b20229875708a20",
-      "width": 2256,
-      "height": 1606,
+      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1127_kawakita_omote.jpg",
+      "sha256": "13037bef229b7e1d3c92a8b3652cbd317b22a0dcf15e54ed3a2a99326b55a664",
+      "width": 1606,
+      "height": 2255,
       "flyer_period": {
-        "start": "2026-11-24",
-        "end": "2026-11-26",
-        "kind": "flyer_metadata_not_product_sale_dates"
-      },
-      "ocr_product_hints": 2
-    },
-    {
-      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1124_shoku_ura-scaled.jpg",
-      "sha256": "b108c64a7a380e5b1909882067575af4163bbd90e636546a65af4604a8059d98",
-      "width": 1823,
-      "height": 2560,
-      "flyer_period": {
-        "start": "2026-11-24",
-        "end": "2026-11-26",
+        "start": "2026-11-27",
+        "end": "2026-11-30",
         "kind": "flyer_metadata_not_product_sale_dates"
       },
       "ocr_product_hints": 0
+    },
+    {
+      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1127_kawakita_ura.jpg",
+      "sha256": "a42193ef4b6f718e347897a4f1604687dd466296e264218c86c59c6f9518454b",
+      "width": 1606,
+      "height": 2255,
+      "flyer_period": {
+        "start": "2026-11-27",
+        "end": "2026-11-30",
+        "kind": "flyer_metadata_not_product_sale_dates"
+      },
+      "ocr_product_hints": 1
     }
   ],
   "candidates": [
     {
-      "id": "51701d14ab9a8a0ae65dc5d3",
+      "id": "75f9bb1211d90cc481e460a8",
       "store_id": "yamakishi",
-      "vegetable_hint": "onion",
-      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1124_kawakita_omote.jpg",
-      "image_sha256": "3994dcd619137976e5db49fef888ace7b75b4b26498f5ffd0b20229875708a20",
+      "vegetable_hint": "cucumber",
+      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1127_kawakita_ura.jpg",
+      "image_sha256": "a42193ef4b6f718e347897a4f1604687dd466296e264218c86c59c6f9518454b",
       "ocr_mode": 11,
       "bbox": [
-        260,
-        871,
-        102,
-        20
+        704,
+        1343,
+        172,
+        32
       ],
       "ocr_confidence": 0.0,
       "match_method": "exact_text",
-      "evidence_hint": "玉ねぎ大袋",
-      "review_status": "unverified",
-      "price_yen": null,
-      "unit": null,
-      "valid_from": null,
-      "valid_until": null,
-      "review_required": [
-        "product_price_association",
-        "tax_included_price",
-        "quantity_unit",
-        "product_sale_dates_and_times",
-        "purchase_conditions"
-      ]
-    },
-    {
-      "id": "8ea819b99e776fb71482c090",
-      "store_id": "yamakishi",
-      "vegetable_hint": "cucumber",
-      "source_url": "https://www.yamakishi.co.jp/news/wp-content/uploads/2026/11/1124_kawakita_omote.jpg",
-      "image_sha256": "3994dcd619137976e5db49fef888ace7b75b4b26498f5ffd0b20229875708a20",
-      "ocr_mode": 11,
-      "bbox": [
-        1506,
-        866,
-        73,
-        34
-      ],
-      "ocr_confidence": 92.3,
-      "match_method": "exact_text",
-      "evidence_hint": "きゅうり",
+      "evidence_hint": "旧床生椎薩きゅうり",
       "review_status": "unverified",
       "price_yen": null,
       "unit": null,
